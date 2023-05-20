@@ -3,6 +3,34 @@
 // - titolo
 // - descrizione
 
+const {createApp} = Vue;
+
+
+createApp({
+    data() {
+        return {
+            activeSlide: 0,
+            movie: {
+                image: [
+                    'images/img/01.webp',
+                ],
+                title: [
+                    "Marvel\\'s Spiderman Miles Morale",
+                ],
+                text: [
+                    'Experience the rise of Miles Morales as the new hero masters incredible, explosive new powers to become his own Spider-Man.',
+                ],
+            }
+        }
+    },
+    methods: {
+        
+    }
+}).mount('#app')
+
+
+
+
 const images = [
     {
         image: 'images/img/01.webp',
@@ -30,40 +58,13 @@ const images = [
 ];
 
 
-// Creare un carosello come nella foto allegata.
-
-// Milestone 0:
-// Come nel primo carosello realizzato, focalizziamoci prima sulla creazione del markup statico: costruiamo il container e inseriamo l’immagine grande in modo da poter stilare lo slider.
-
-
-//Prendo i container
-const container = document.getElementById ('container');
-const containerSchede = document.getElementById('container-schede');
-
-//ciclo gli oggetti nella pagina
-
-images.forEach(element =>{
-
-    //popolo schede
-    const scheda = 
-        `
-        <div class="scheda">
-            <img src="${element.image}" alt="img">
-        </div>
-        <div class="txt">
-            <h5>${element.title}</h5>
-            <p>${element.text}</p>
-            </div>
-        </div>
-        `;
-    containerSchede.innerHTML += scheda;
-
-});
-
-
-// Milestone 1:
-// Ora rimuoviamo i contenuti statici e usiamo l’array di oggetti letterali per popolare dinamicamente il carosello.
-// Al click dell’utente sulle frecce verso sopra e sotto, l’immagine attiva diventerà visibile e dovremo aggiungervi titolo e testo.
-// Milestone 2:
-// Aggiungere il **ciclo infinito** del carosello.
-// Ovvero se l’immagine attiva è la prima e l’utente clicca la freccia verso sopra, l’immagine che deve attivarsi sarà l’ultima e viceversa per l’ultima miniatura se l’utente clicca la freccia verso sotto.
+// /Descrizione:
+// Partendo dal markup della versione svolta in js plain, rifare lo slider ma questa volta usando Vue.
+// Bonus:
+// 1- al click su una thumb, visualizzare in grande l’immagine corrispondente
+// 2- applicare l’autoplay allo slider: ogni 3 secondi, cambia immagine automaticamente
+// 3- quando il mouse va in hover sullo slider, bloccare l’autoplay e farlo riprendere quando esce
+// Consigli del giorno:
+// - regola d’oro: riciclare ovunque possibile!
+// Questo significa che per la parte di markup possiamo recuperare html e css dell’esercizio svolto qualche giorno fa: è già tutto pronto!
+// - il riciclo spesso va a braccetto con le funzioni! Sapendole sfruttare bene, l’esercizio si riduce a poche righe
